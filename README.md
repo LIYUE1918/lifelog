@@ -161,7 +161,9 @@ src/
 ├── actions/             # Server Actions
 └── lib/                 # Prisma + Auth
 ```
+## 宠物
 
+![Stone Badge](https://stone.professorlee.work/api/stone/LIYUE1918/lifelog)
 ---
 
 <p align="center">
