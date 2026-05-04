@@ -75,6 +75,6 @@ src/
 └── api/            # API Routes
 ```
 
-## License
+## 宠物
 
-MIT
+![Stone Badge](https://stone.professorlee.work/api/stone/LIYUE1918/lifelog)
