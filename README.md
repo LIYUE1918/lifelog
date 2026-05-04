@@ -164,6 +164,7 @@ src/
 ## 宠物
 
 ![Stone Badge](https://stone.professorlee.work/api/stone/LIYUE1918/lifelog)
+![deepseekv4pro](https://github.com/deepseek-ai/DeepSeek-V2/blob/main/figures/logo.svg?raw=true)
 ---
 
 <p align="center">
