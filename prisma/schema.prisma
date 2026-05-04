@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Log {
+  id        String   @id @default(cuid())
+  content   String
+  images    String   @default("[]")
+  mood      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tags      LogTag[]
+}
+
+model Reminder {
+  id          String        @id @default(cuid())
+  title       String
+  description String?
+  dueDate     DateTime
+  completed   Boolean       @default(false)
+  priority    String        @default("medium")
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  tags        ReminderTag[]
+}
+
+model Tag {
+  id        String        @id @default(cuid())
+  name      String        @unique
+  color     String        @default("#6366f1")
+  createdAt DateTime      @default(now())
+  logs      LogTag[]
+  reminders ReminderTag[]
+}
+
+model LogTag {
+  logId String
+  tagId String
+  log   Log @relation(fields: [logId], references: [id], onDelete: Cascade)
+  tag   Tag @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  @@id([logId, tagId])
+}
+
+model ReminderTag {
+  reminderId String
+  tagId      String
+  reminder   Reminder @relation(fields: [reminderId], references: [id], onDelete: Cascade)
+  tag        Tag      @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  @@id([reminderId, tagId])
+}
